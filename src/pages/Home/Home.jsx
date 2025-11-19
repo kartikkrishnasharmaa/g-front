@@ -20,12 +20,12 @@ const Home = () => {
                     {JSON.stringify(auth, null, 3)}
                 </pre> */}
                 <Banner />
-                <DealSlider title={"Discounts for You"} />
+                {/* <DealSlider title={"Discounts for You"} />
                 <ProductSlider
                     title={"Best of Electronics"}
                     products={electronicProducts}
                     logo={electronics}
-                />
+                /> */}
           
                 {/* <Suggestion
                     title={"Suggested for You"}
