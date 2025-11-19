@@ -95,140 +95,123 @@ const Login = () => {
             {isSubmitting ? (
                 <Spinner />
             ) : (
-                <div className="container bg-primaryBg mt-5 sm:mt-0 md:mt-0 lg:mt-0 py-[2px]">
-                    <div className="flex items-center flex-col sm:flex-row md:flow-row lg:flex-row my-10 mx-auto w-full sm:w-[70vw] md:w-[70vw] lg:w-[70vw] min-h-[400px] md:h-[80vh] lg:h-[80vh] bg-white shadow-[0px_0px_8px_2px_rgba(212,212,212,0.6)] ">
-                        {/* left view  */}
-                        <div className=" w-full md:w-[40%] lg:w-[40%] h-full bg-white">
-                            <div className="flex gap-2 md:gap-6 flex-col h-full mt-5 md:mt-10 px-6 ">
+            <div className="w-full min-h-screen bg-primary Bg flex items-center justify-center py-10 px-4">
+  <div className="flex flex-col lg:flex-row bg-white shadow-lg w-full max-w-5xl rounded-lg overflow-hidden">
 
-                                <div className="">
-                                    <img src={authImg} alt="auth image" />
-                                </div>
-                            </div>
-                        </div>
+    {/* LEFT IMAGE SECTION */}
+    <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 sm:p-10">
+      <img
+        src={authImg}
+        alt="auth"
+        className="w-full max-w-xs sm:max-w-sm md:max-w-md object-contain"
+      />
+    </div>
 
-                        {/* sign up form */}
-                        <div className="p-10 w-full h-full sm:w-[60%] md:w-[60%] lg:w-[60%] flex flex-col gap-y-10 ">
-                            <div className=" h-full w-full">
-                                <form
-                                    action="/login"
-                                    method="post"
-                                    className="w-[90%] mx-auto transition-all"
-                                    onSubmit={handleFormSubmit}
-                                >
-                                    <div className="text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 pt-3 ">
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="on"
-                                                id="email"
-                                                name="email"
-                                                type="email"
-                                                value={email}
-                                                onChange={(e) =>
-                                                    setEmail(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 text-gray-900 text-sm focus:outline-none focus:border-blue-400"
-                                                placeholder="Email address"
-                                                required
-                                                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" // Email pattern
-                                            />
-                                            <label
-                                                htmlFor="email"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Email Address
-                                            </label>
-                                        </div>
+    {/* RIGHT FORM SECTION */}
+    <div className="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
+      <form
+        action="/login"
+        method="post"
+        className="w-full"
+        onSubmit={handleFormSubmit}
+      >
+        <div className="text-base space-y-6 text-gray-700">
 
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="off"
-                                                id="password"
-                                                name="password"
-                                                type={
-                                                    showPassword
-                                                        ? "text"
-                                                        : "password"
-                                                }
-                                                value={password}
-                                                onChange={(e) =>
-                                                    setPassword(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 focus:border-blue-400 text-gray-900 focus:outline-none text-sm"
-                                                placeholder="Password"
-                                                required
-                                                minLength="5"
-                                            />
-                                            <label
-                                                htmlFor="password"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Password
-                                            </label>
-                                            <span
-                                                className="absolute right-3 bottom-2 hover:text-black cursor-pointer"
-                                                onClick={handlePasswordToggle}
-                                            >
-                                                {!showPassword && <AiFillEye />}
-                                                {showPassword && (
-                                                    <AiFillEyeInvisible />
-                                                )}
-                                            </span>
-                                        </div>
-                                        <div className="text-[9px] text-slate-500 ">
-                                            <p>
-                                                By continuing, you agree to
-                                                Flipkart&apos;s Terms of Use and
-                                                Privacy Policy.
-                                            </p>
-                                        </div>
+          {/* EMAIL */}
+          <div className="relative">
+            <input
+              autoComplete="on"
+              id="email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Email"
+              required
+            />
+            <label
+              htmlFor="email"
+              className="absolute left-0 -top-3 text-gray-600 text-xs transition-all
+              peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+              peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gray-600"
+            >
+              Email Address
+            </label>
+          </div>
 
-                                        <div className="relative flex flex-col">
-                                       <button
-  className="
-    bg-[linear-gradient(to_right,#ff7a18,#af002d)] 
-    text-white uppercase text-[14px] font-semibold
-    rounded-md px-4 py-2 
-    shadow-md hover:shadow-lg
-    transition-all duration-300
-  "
->
-  Log in
-</button>
+          {/* PASSWORD */}
+          <div className="relative">
+            <input
+              autoComplete="off"
+              id="password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Password"
+              required
+              minLength="5"
+            />
+            <label
+              htmlFor="password"
+              className="absolute left-0 -top-3 text-gray-600 text-xs transition-all
+              peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+              peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gray-600"
+            >
+              Password
+            </label>
 
+            <span
+              className="absolute right-3 bottom-2 text-gray-700 cursor-pointer"
+              onClick={handlePasswordToggle}
+            >
+              {!showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+            </span>
+          </div>
 
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            {/* 
-                            <div className="relative -mt-7 w-full text-center">
-                                <Link
-                                    to="/forgot-password"
-                                    className=" text-primaryBlue font-[500] text-[12px] "
-                                >
-                                    Forgot Password ?
-                                </Link>
-                            </div> */}
-                            <div className="relative mt-4 w-full mb-44 text-center">
-                                <Link
-                                    to="/register"
-                                    className="
-    bg-[linear-gradient(to_right,#ff7a18,#af002d)] 
-    text-white uppercase text-[14px] font-semibold
-    rounded-md px-4 py-2 
-    shadow-md hover:shadow-lg
-    transition-all duration-300
-  "
-                                >
-                                    New to Flipkart? Create an account
-                                </Link>
+          {/* TEXT */}
+          <p className="text-[10px] text-slate-500">
+            By continuing, you agree to our Terms of Use & Privacy Policy.
+          </p>
 
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          {/* LOGIN BUTTON */}
+          <button
+            className="
+              w-full 
+              bg-red-600 
+              text-white font-semibold text-sm uppercase
+              py-2 rounded-md 
+              shadow-md hover:shadow-lg 
+              transition-all duration-300
+            "
+          >
+            Log In
+          </button>
+        </div>
+      </form>
+
+      {/* SIGNUP BUTTON */}
+      <div className="mt-6 text-center">
+        <Link
+          to="/register"
+          className="
+            block w-full
+            bg-red-900 
+            text-white font-semibold text-sm uppercase
+            py-2 rounded-md
+            shadow-md hover:shadow-lg 
+            transition-all duration-300
+          "
+        >
+          New to Gowamrit ? Create an account
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+
             )}
         </>
     );

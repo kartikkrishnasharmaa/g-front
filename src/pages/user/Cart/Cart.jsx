@@ -108,7 +108,7 @@ const Cart = () => {
                                     onClick={placeOrderHandler}
                                     disabled={cartItems.length < 1}
                                     className={`${
-                                        cartItems.length < 1 ? "hidden" : "bg-orange"
+                                        cartItems.length < 1 ? "hidden" : "bg-blue-600 hover:bg-blue-700"
                                     } w-full sm:w-1/3 mx-2 sm:mx-6 my-4 py-4 font-medium text-white shadow hover:shadow-lg rounded-sm`}
                                 >
                                     PLACE ORDER

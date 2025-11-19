@@ -89,226 +89,173 @@ const Register = () => {
             {isSubmitting ? (
                 <Spinner />
             ) : (
-                <div className="container bg-primaryBg mt-5 sm:mt-0 md:mt-0 lg:mt-0 py-[2px]">
-                    <div className="flex items-center flex-col sm:flex-row md:flow-row lg:flex-row my-10 mx-auto w-full sm:w-[70vw] md:w-[70vw] lg:w-[70vw] min-h-[500px] md:h-[80vh] lg:h-[80vh] bg-white shadow-[0px_0px_8px_2px_rgba(212,212,212,0.6)] ">
-                        {/* left view  */}
-                        <div className=" w-full md:w-[40%] lg:w-[40%] h-ful">
-                            <div className="flex gap-6 flex-col h-full mt-10 px-6 ">
-                                <div className="leading-8 text-black text-[22px] font-[600]">
-                                    <h2>Looks like you&apos;re new here!</h2>
-                                </div>
-                                <div className="mt-14">
-                                    <img src={auth} alt="auth image" />
-                                </div>
-                            </div>
-                        </div>
+             <div className="w-full min-h-screen bg-primaryBg flex items-center justify-center py-10 px-4">
+  <div className="flex flex-col lg:flex-row bg-white shadow-lg w-full max-w-5xl rounded-lg overflow-hidden">
 
-                        {/* sign up form */}
-                        <div className="p-10 w-full  sm:w-[60%] md:w-[60%] lg:w-[60%] ">
-                            <div className="flex items-center flex-col h-full w-full">
-                                <form
-                                    action="/register"
-                                    method="post"
-                                    className="w-[90%] mx-auto transition-all"
-                                    onSubmit={handleFormSubmit}
-                                >
-                                    <div className="text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 pt-3 ">
-                                        <div className="relative ">
-                                            <input
-                                                autoComplete="on"
-                                                id="name"
-                                                name="name"
-                                                type="text"
-                                                value={name}
-                                                onChange={(e) =>
-                                                    setName(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-6 w-full border-b-2 focus:border-blue-400 text-gray-900 focus:outline-none text-sm"
-                                                placeholder="Full Name"
-                                                required
-                                            />
-                                            <label
-                                                htmlFor="name"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-1 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Full Name
-                                            </label>
-                                        </div>
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="on"
-                                                id="email"
-                                                name="email"
-                                                type="email"
-                                                value={email}
-                                                onChange={(e) =>
-                                                    setEmail(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 text-gray-900 text-sm focus:outline-none focus:border-blue-400"
-                                                placeholder="Email address"
-                                                required
-                                                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" // Email pattern
-                                            />
-                                            <label
-                                                htmlFor="email"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Email Address
-                                            </label>
-                                        </div>
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="on"
-                                                id="phone"
-                                                name="phone"
-                                                type="text"
-                                                value={phone}
-                                                onChange={(e) =>
-                                                    setPhone(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 text-gray-900 text-sm focus:outline-none focus:border-blue-400"
-                                                placeholder="Mobile Number"
-                                                required
-                                                inputMode="numeric" // Set input mode to numeric
-                                                pattern="[0-9]*" // Allow only numeric values
-                                                minLength="10"
-                                                maxLength="10"
-                                            />
-                                            <label
-                                                htmlFor="phone"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Mobile Number
-                                            </label>
-                                        </div>
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="off"
-                                                id="password"
-                                                name="password"
-                                                type="password"
-                                                value={password}
-                                                onChange={(e) =>
-                                                    setPassword(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 focus:border-blue-400 text-gray-900 focus:outline-none text-sm"
-                                                placeholder="Password"
-                                                required
-                                                minLength="5"
-                                            />
-                                            <label
-                                                htmlFor="password"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Password
-                                            </label>
-                                        </div>
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="off"
-                                                id="confirm_password"
-                                                name="confirm_password"
-                                                type={
-                                                    showPassword
-                                                        ? "text"
-                                                        : "password"
-                                                }
-                                                onChange={(e) =>
-                                                    setConfirmPassword(
-                                                        e.target.value
-                                                    )
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 focus:border-blue-400 text-gray-900 focus:outline-none text-sm"
-                                                placeholder="Confirm Password"
-                                                required
-                                            />
-                                            <label
-                                                htmlFor="confirm_password"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Confirm Password
-                                            </label>
-                                            <span
-                                                className="absolute right-3 bottom-2 hover:text-black cursor-pointer"
-                                                onClick={handlePasswordToggle}
-                                            >
-                                                {!showPassword && <AiFillEye />}
-                                                {showPassword && (
-                                                    <AiFillEyeInvisible />
-                                                )}
-                                            </span>
-                                        </div>
-                                        <div className="relative">
-                                            <input
-                                                autoComplete="on"
-                                                id="address"
-                                                name="address"
-                                                type="text"
-                                                value={address}
-                                                onChange={(e) =>
-                                                    setAddress(e.target.value)
-                                                }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 text-gray-900 text-sm focus:outline-none focus:border-blue-400"
-                                                placeholder="Address"
-                                                required
-                                            />
-                                            <label
-                                                htmlFor="address"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                                            >
-                                                Address
-                                            </label>
-                                        </div>
-                                        {/* <div className="relative">
-                                            <Checkbox
-                                                size="small"
-                                                onChange={handleCheckbox}
-                                                inputProps={{
-                                                    "aria-label": "controlled",
-                                                }}
-                                            />
-                                            <span className="text-[12px] text-gray-700 font-[500]">
-                                                Register as Seller
-                                            </span>
-                                        </div> */}
-                                        <div className="relative flex flex-col">
-                                            <button
-                                                className="
-    bg-[linear-gradient(to_right,#ff7a18,#af002d)] 
-    text-white uppercase text-[14px] font-semibold
-    rounded-md px-4 py-2 
-    shadow-md hover:shadow-lg
-    transition-all duration-300
-  "
-                                            >
-                                                Continue
-                                            </button>
+    {/* LEFT IMAGE + TEXT */}
+    <div className="w-full lg:w-1/2 bg-white flex flex-col items-center justify-center p-6 sm:p-10 text-center lg:text-left">
+      <h2 className="text-[22px] font-semibold text-black leading-8">
+        Looks like you're new here!
+      </h2>
+      <img
+        src={auth}
+        alt="auth"
+        className="w-full max-w-xs sm:max-w-sm md:max-w-md object-contain mt-10"
+      />
+    </div>
 
-                                        </div>
-                                    </div>
-                                </form>
-                                <div className="relative mt-4">
-                                    <Link to="/login">
+    {/* RIGHT FORM SECTION */}
+    <div className="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
+      <form
+        action="/register"
+        method="post"
+        className="w-full"
+        onSubmit={handleFormSubmit}
+      >
+        <div className="text-base space-y-6 text-gray-700">
 
-                                        <button
-                                            className="
-    bg-[linear-gradient(to_right,#ff7a18,#af002d)] 
-    text-white uppercase text-[14px] font-semibold
-    rounded-md px-4 py-2 
-    shadow-md hover:shadow-lg
-    transition-all duration-300
-  "
-                                        >
-                                            Existing User? Log in
+          {/* FULL NAME */}
+          <div className="relative">
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Full Name"
+              required
+            />
+            <label className="absolute left-0 -top-3 text-gray-600 text-xs transition-all
+              peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+              peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gray-600">
+              Full Name
+            </label>
+          </div>
 
-                                        </button>
+          {/* EMAIL */}
+          <div className="relative">
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Email"
+              required
+            />
+            <label className="absolute left-0 -top-3 text-gray-600 text-xs transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs">
+              Email Address
+            </label>
+          </div>
 
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          {/* PHONE */}
+          <div className="relative">
+            <input
+              id="phone"
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Mobile Number"
+              required
+              maxLength="10"
+            />
+            <label className="absolute left-0 -top-3 text-gray-600 text-xs transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs">
+              Mobile Number
+            </label>
+          </div>
+
+          {/* PASSWORD */}
+          <div className="relative">
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Password"
+              required
+            />
+            <label className="absolute left-0 -top-3 text-gray-600 text-xs transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs">
+              Password
+            </label>
+          </div>
+
+          {/* CONFIRM PASSWORD */}
+          <div className="relative">
+            <input
+              id="confirm_password"
+              type={showPassword ? "text" : "password"}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Confirm Password"
+              required
+            />
+            <label className="absolute left-0 -top-3 text-gray-600 text-xs transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs">
+              Confirm Password
+            </label>
+
+            <span
+              className="absolute right-3 bottom-2 text-gray-700 cursor-pointer"
+              onClick={handlePasswordToggle}
+            >
+              {!showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+            </span>
+          </div>
+
+          {/* ADDRESS */}
+          <div className="relative">
+            <input
+              id="address"
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="peer placeholder-transparent border-b-2 w-full h-10 text-sm focus:outline-none focus:border-blue-500"
+              placeholder="Address"
+              required
+            />
+            <label className="absolute left-0 -top-3 text-gray-600 text-xs transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs">
+              Address
+            </label>
+          </div>
+
+          {/* SUBMIT BUTTON */}
+          <button
+            className="
+              w-full 
+              bg-red-600 
+              text-white font-semibold text-sm uppercase
+              py-2 rounded-md 
+              shadow-md hover:shadow-lg 
+              transition-all duration-300
+            "
+          >
+            Continue
+          </button>
+        </div>
+      </form>
+
+      {/* LOGIN BUTTON */}
+      <div className="mt-6">
+        <Link to="/login">
+          <button
+            className="
+              w-full 
+              bg-red-900 
+              text-white font-semibold text-sm uppercase
+              py-2 rounded-md
+              shadow-md hover:shadow-lg
+              transition-all duration-300
+            "
+          >
+            Existing User? Log In
+          </button>
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+
             )}
         </>
     );
