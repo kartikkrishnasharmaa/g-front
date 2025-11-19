@@ -288,7 +288,7 @@ const ProductDetails = () => {
                                                         : addToCartHandler
                                                 }
                                                 disabled={isAdmin}
-                                                className="disabled:cursor-not-allowed p-2 sm:p-4 w-1/2 flex items-center justify-center gap-2 text-white bg-[#ff9f00] rounded-sm shadow hover:shadow-lg"
+                                                className="disabled:cursor-not-allowed p-2 sm:p-4 w-1/2 flex items-center justify-center gap-2 text-white bg-blue-400 rounded-sm shadow hover:shadow-lg"
                                             >
                                                 <ShoppingCartIcon />
                                                 {itemInCart
@@ -304,7 +304,7 @@ const ProductDetails = () => {
                                             className={`disabled:cursor-not-allowed flex items-center justify-center gap-2 text-white rounded-sm shadow hover:shadow-lg p-4 ${
                                                 product.stock < 1
                                                     ? " w-full bg-red-600 cursor-not-allowed"
-                                                    : "w-1/2 bg-[#fb641b]"
+                                                    : "w-1/2 bg-blue-600"
                                             }`}
                                         >
                                             <FlashOnIcon />
@@ -337,12 +337,7 @@ const ProductDetails = () => {
                                         <span>
                                             {product?.numOfReviews} Reviews
                                         </span>
-                                        <span className="w-[80px] object-contain">
-                                            <img
-                                                src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
-                                                alt="f-assured"
-                                            />
-                                        </span>
+                                  
                                     </span>
                                     {/* <!-- rating badge --> */}
 
@@ -360,13 +355,7 @@ const ProductDetails = () => {
                                                 ₹
                                                 {product?.price?.toLocaleString()}
                                             </span>
-                                            <span className="text-base text-primaryGreen">
-                                                {getDiscount(
-                                                    product?.price,
-                                                    product?.discountPrice
-                                                )}
-                                                %&nbsp;off
-                                            </span>
+                                        
                                         </div>
                                     </div>
                                     {product?.stock <= 10 &&
@@ -376,75 +365,9 @@ const ProductDetails = () => {
                                                 left!
                                             </span>
                                         )}
-                                    {/* <!-- price desc --> */}
-
-                                    {/* <!-- banks offers --> */}
-                                    <p className="text-md font-[600]">
-                                        Available offers
-                                    </p>
-
-                                    {[
-                                        "Flat ₹200 off on HDFC Bank Credit/Debit Card on 3 months EMI Txns, Min Txn Value ₹10,000",
-                                        "10% Instant Discount on ICICI Bank Credit Card Txns, up to ₹1250, on orders of ₹5000 and above",
-                                        "Flat ₹500 off on HDFC Bank Credit/Debit Card on 6 months EMI Txns, Min Txn Value ₹10,000",
-                                    ].map((el, i) => (
-                                        <div
-                                            className="flex gap-2 text-xs sm:text-sm leading-4"
-                                            key={i}
-                                        >
-                                            <div className="whitespace-nowrap flex items-start">
-                                                <LocalOfferIcon
-                                                    sx={{
-                                                        fontSize: "16px",
-                                                    }}
-                                                    style={{
-                                                        color: "#16bd49",
-                                                        marginTop: "2px",
-                                                    }}
-                                                />
-                                                <span className="ml-1 font-semibold">
-                                                    Bank Offer
-                                                </span>
-                                            </div>
-                                            <div className="flex items-start text-sm">
-                                                <span>
-                                                    {el}
-                                                    <Link
-                                                        className="text-primaryBlue text-[12px] font-medium ml-1"
-                                                        to="./"
-                                                    >
-                                                        T&C
-                                                    </Link>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    ))}
-                                    {/* <!-- banks offers --> */}
-
-                                    {/* <!-- warranty & brand --> */}
-                                    <div className="flex gap-8 mt-2 items-center text-sm">
-                                        <img
-                                            draggable="false"
-                                            className="w-20 h-8 p-0.5 border object-contain"
-                                            src={product.brand?.logo.url}
-                                            alt={product?.brand?.name}
-                                        />
-                                        <span>
-                                            {product?.warranty === 0
-                                                ? "No Warranty"
-                                                : `${product?.warranty} Year Brand Warranty`}
-                                        </span>
-                                        <Link
-                                            className="font-medium text-primaryBlue -ml-5"
-                                            to="/"
-                                        >
-                                            Know More
-                                        </Link>
-                                    </div>
-                                    {/* <!-- warranty & brand --> */}
-
+                      
                                     {/* <!-- delivery details --> */}
-                                    <div className="flex gap-16 mt-4 items-center text-sm font-medium">
+                                    {/* <div className="flex gap-16 mt-4 items-center text-sm font-medium">
                                         <p className="text-gray-500">
                                             Delivery
                                         </p>
@@ -452,7 +375,7 @@ const ProductDetails = () => {
                                             Delivery by {getDeliveryDate()} | ₹
                                             40
                                         </span>
-                                    </div>
+                                    </div> */}
                                     {/* <!-- delivery details --> */}
 
                                     {/* <!-- highlights & services details --> */}
@@ -475,57 +398,7 @@ const ProductDetails = () => {
                                         </div>
                                         {/* <!-- highlights details --> */}
 
-                                        {/* <!-- services details --> */}
-                                        <div className="flex gap-16 mt-4 mr-6 items-stretch text-sm">
-                                            <p className="text-gray-500 font-medium">
-                                                Services
-                                            </p>
-                                            <ul className="flex flex-col gap-2">
-                                                <li>
-                                                    <p className="flex items-center gap-3">
-                                                        <span className="text-primaryBlue">
-                                                            <VerifiedUserIcon
-                                                                sx={{
-                                                                    fontSize:
-                                                                        "18px",
-                                                                }}
-                                                            />
-                                                        </span>{" "}
-                                                        {product?.warranty} Year
-                                                        Brand Warranty
-                                                    </p>
-                                                </li>
-                                                <li>
-                                                    <p className="flex items-center gap-3">
-                                                        <span className="text-primaryBlue">
-                                                            <CachedIcon
-                                                                sx={{
-                                                                    fontSize:
-                                                                        "18px",
-                                                                }}
-                                                            />
-                                                        </span>{" "}
-                                                        7 Days Replacement
-                                                        Policy
-                                                    </p>
-                                                </li>
-                                                <li>
-                                                    <p className="flex items-center gap-3">
-                                                        <span className="text-primaryBlue">
-                                                            <CurrencyRupeeIcon
-                                                                sx={{
-                                                                    fontSize:
-                                                                        "18px",
-                                                                }}
-                                                            />
-                                                        </span>{" "}
-                                                        Cash on Delivery
-                                                        available
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        {/* <!-- services details --> */}
+                                
                                     </div>
                                     {/* <!-- highlights & services details --> */}
 
@@ -730,7 +603,7 @@ const ProductDetails = () => {
                         {/* <!-- product image & description container --> */}
 
                         {/* Sliders */}
-                        <div className="flex flex-col gap-3 mt-6">
+                        {/* <div className="flex flex-col gap-3 mt-6">
                             <ProductSlider
                                 title={"Recommendation"}
                                 products={[
@@ -738,7 +611,7 @@ const ProductDetails = () => {
                                     ...electronicProducts,
                                 ]}
                             />
-                        </div>
+                        </div> */}
                     </main>
                 </>
             )}

@@ -17,7 +17,7 @@ const Header = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const headerRef = useRef(null);
 
-    const {auth, setAuth, LogOut} = useAuth();
+    const { auth, setAuth, LogOut } = useAuth();
     const [cartItems, setCartItems] = useCart();
 
     let closeTimeout;
@@ -57,7 +57,7 @@ const Header = () => {
         <header ref={headerRef}>
             <nav
                 className="container px-4 md:px-[50px]"
-                // onMouseLeave={closeDropdown}
+            // onMouseLeave={closeDropdown}
             >
                 <div className=" flex items-center justify-between gap-3 md:gap-14 w-full flex-col md:flex-row sm:flex-row lg:flex-row">
                     {/* primary div */}
@@ -87,15 +87,20 @@ const Header = () => {
                                     Home
                                 </span>
                             </NavLink>
+                            <NavLink to="/products" className="flex items-center ml-6 gap-1">
+                                <BiHomeSmile className="text-[22px]" />
+                                <span className="text-[18px] hidden md:block lg:block group-hover:text-slate-700">
+                                    Products
+                                </span>
+                            </NavLink>
                         </div>
 
                         {/* Account */}
                         <div
-                            className={`flex items-center relative cursor-pointer group ${
-                                auth.user
+                            className={`flex items-center relative cursor-pointer group ${auth.user
                                     ? "hover:bg-slate-100"
                                     : "hover:bg-primaryBlue"
-                            } rounded-md p-1`}
+                                } rounded-md p-1`}
                             onMouseEnter={toggleDropdown}
                             onMouseLeave={closeDropdown}
                         >
@@ -152,11 +157,10 @@ const Header = () => {
                                         )}
                                         <li className="p-1 hover:bg-slate-100 rounded-md">
                                             <Link
-                                                to={`${
-                                                    auth?.user?.role === 1
+                                                to={`${auth?.user?.role === 1
                                                         ? "/admin"
                                                         : "/user"
-                                                }/dashboard`}
+                                                    }/dashboard`}
                                                 className="flex items-center gap-3"
                                             >
                                                 <AiOutlineUser className="text-[14px]" />
@@ -181,11 +185,10 @@ const Header = () => {
                                         )}
                                         <li className="p-1 hover:bg-slate-100 rounded-md">
                                             <Link
-                                                to={`${
-                                                    auth?.user?.role === 1
+                                                to={`${auth?.user?.role === 1
                                                         ? "/admin"
                                                         : "/user"
-                                                }/orders`}
+                                                    }/orders`}
                                                 className="flex items-center gap-3"
                                             >
                                                 <BsBox className="text-[14px]" />
