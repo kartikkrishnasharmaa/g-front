@@ -43,7 +43,6 @@ const Orders = () => {
         <>
             <SeoData title="My Orders | Gowamrit" />
 
-            <MinCategory />
             <main className="w-full px-4 sm:px-10 py-4 ">
                 {/* <!-- row --> */}
                 {/* <!-- orders column --> */}

@@ -225,7 +225,6 @@ const ProductDetails = () => {
                 <>
                     <SeoData title={product?.name} />
                     <ScrollToTopOnRouteChange />
-                    <MinCategory />
                     <main className="mt-5 sm:mt-0">
                         {/* <!-- product image & description container --> */}
                         <div className="w-full flex flex-col lg:flex-row bg-white sm:p-2 relative">

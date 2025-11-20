@@ -125,7 +125,6 @@ const Products = () => {
         <>
             <SeoData title="All Products | Gowamrit" />
 
-            <MinCategory />
             <main className="w-full pt-2 pb-5 sm:mt-0">
                 {/* <!-- row --> */}
                 <div className="flex gap-3 mt-2 sm:mt-2 sm:mx-3 m-auto ">
