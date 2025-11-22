@@ -515,7 +515,7 @@ const EditProduct = () => {
                         <h2 className="font-medium">
                             Product Images{" "}
                             <span className="ml-2 text-xs text-gray-500">
-                                (1-4 images, max 500KB each)
+                                (1-6 images, max 500KB each)
                             </span>
                         </h2>
                         <div className="flex gap-2 overflow-x-auto h-36 border rounded bg-gray-200 p-2">

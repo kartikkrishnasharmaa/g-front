@@ -43,8 +43,8 @@ const CreateProduct = () => {
     const [isSubmit, setIsSubmit] = useState(false);
 
     // max image size 500kb
-    const MAX_IMAGE_SIZE = 500 * 1024;
-    const MAX_IMAGES_COUNT = 4; // Maximum number of allowed images
+    const MAX_IMAGE_SIZE = 5000 * 1024;
+    const MAX_IMAGES_COUNT = 7; // Maximum number of allowed images
 
     const handleSpecsChange = (e) => {
         setSpecsInput({ ...specsInput, [e.target.name]: e.target.value });
