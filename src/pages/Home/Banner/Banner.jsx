@@ -55,11 +55,12 @@ const Banner = () => {
                     {banners.map((el, i) => (
                         <img
                             draggable="false"
-                            className="h-[500px]  w-full object-cover "
+                            className="w-full h-auto  object-contain bg-black"
                             src={el}
                             alt="banner"
                             key={i}
                         />
+
                     ))}
                 </Slider>
             </section>
