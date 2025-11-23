@@ -20,6 +20,22 @@ const Banner = () => {
     const products = [
         {
             id: 1,
+            name: "Saffron blended A2 gir cow ghee 0.5 KG",
+            image: "https://res.cloudinary.com/ddvfaiqrh/image/upload/v1763825642/products/vcupqmbyaqeihqnk6rjp.jpg", // You can replace with actual product images
+            link: "https://www.gowamrit.com/product/6921d46880a8df5e196a8420",
+            description: "Premium saffron infused A2 ghee with traditional bilona method",
+            highlights: [
+                "Premium Saffron Infused",
+                "Pure Gir Cow A2 Ghee",
+                "Small-Batch Preparation",
+                "Authentic & Nutritious"
+            ],
+            price: "₹1,999",
+            originalPrice: "₹2,200",
+            discount: "9% off"
+        },
+        {
+            id: 2,
             name: "Saffron blended A2 gir cow ghee 1 KG",
             image: "https://res.cloudinary.com/ddvfaiqrh/image/upload/v1763825642/products/vcupqmbyaqeihqnk6rjp.jpg", // You can replace with actual product images
             link: "https://www.gowamrit.com/product/6921d7ef80a8df5e196a8469",
@@ -33,22 +49,6 @@ const Banner = () => {
             price: "₹3,999",
             originalPrice: "₹4,600",
             discount: "13% off"
-        },
-        {
-            id: 2,
-            name: "Classic A2 gir cow ghee 1 KG",
-            image: "https://res.cloudinary.com/ddvfaiqrh/image/upload/v1763824164/products/was94q3x3mlypym9jyfo.jpg",
-            link: "https://www.gowamrit.com/product/6921d22580a8df5e196a83c0",
-            description: "Authentic traditional bilona ghee from Gir cow milk",
-            highlights: [
-                "100% Pure Gir Cow Milk",
-                "Traditional Bilona Method",
-                "Chemical Free Process",
-                "Rich in A2 Beta-Casein"
-            ],
-            price: "₹3,499",
-            originalPrice: "₹3,850",
-            discount: "9% off"
         },
         {
             id: 3,
@@ -65,6 +65,22 @@ const Banner = () => {
             price: "₹1,749",
             originalPrice: "₹1,900",
             discount: "8% off"
+        },
+        {
+            id: 4,
+            name: "Classic A2 gir cow ghee 1 KG",
+            image: "https://res.cloudinary.com/ddvfaiqrh/image/upload/v1763824164/products/was94q3x3mlypym9jyfo.jpg",
+            link: "https://www.gowamrit.com/product/6921d22580a8df5e196a83c0",
+            description: "Authentic traditional bilona ghee from Gir cow milk",
+            highlights: [
+                "100% Pure Gir Cow Milk",
+                "Traditional Bilona Method",
+                "Chemical Free Process",
+                "Rich in A2 Beta-Casein"
+            ],
+            price: "₹3,499",
+            originalPrice: "₹3,850",
+            discount: "9% off"
         }
     ];
 
@@ -142,119 +158,82 @@ const Banner = () => {
                     </div>
 
                     {/* Product Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
                         {products.map((product) => (
                             <div
                                 key={product.id}
                                 className="
-                                    bg-white 
-                                    rounded-xl 
-                                    shadow-lg 
-                                    overflow-hidden 
-                                    hover:shadow-xl 
-                                    transition-all 
-                                    duration-300 
-                                    hover:transform 
-                                    hover:-translate-y-2
-                                    border 
-                                    border-gray-100
-                                    animate-fadeIn
-                                "
+                bg-white 
+                rounded-2xl 
+                shadow-md 
+                overflow-hidden 
+                border 
+                border-gray-200
+                transition-all 
+                duration-300 
+                hover:shadow-xl
+            "
                             >
-                                {/* Product Image */}
-                                <div className="relative overflow-hidden">
-                                    <img
-                                        src={product.image}
-                                        alt={product.name}
-                                        className="w-full h-64 object-contain bg-white p-2 transition-transform duration-500 hover:scale-105"
-                                    />
+                                <Link to={`${product.link}`}>
 
-                                    <div className="absolute top-3 right-3">
-                                        <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                                            {product.discount}
-                                        </span>
-                                    </div>
-                                </div>
+                                    {/* Product Image */}
+                                    <div className="relative w-full h-40 sm:h-48 bg-[#e7eef7] flex items-center justify-center">
+                                        <img
+                                            src={product.image}
+                                            alt={product.name}
+                                            className="h-full object-cover transition-transform duration-300 hover:scale-105"
+                                        />
 
-                                {/* Product Content */}
-                                <div className="p-5 sm:p-6">
-                                    {/* Product Name */}
-                                    <h3 className="text-xl font-bold text-[#5C3D00] mb-2 line-clamp-2">
-                                        {product.name}
-                                    </h3>
-
-                                    {/* Product Description */}
-                                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                                        {product.description}
-                                    </p>
-
-                                    {/* Product Highlights */}
-                                    <div className="mb-4">
-                                        <h4 className="text-sm font-semibold text-[#A67623] mb-2">
-                                            Key Features:
-                                        </h4>
-                                        <ul className="space-y-1">
-                                            {product.highlights.slice(0, 3).map((highlight, index) => (
-                                                <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
-                                                    <span className="w-1.5 h-1.5 bg-[#D4A752] rounded-full mt-1.5 flex-shrink-0"></span>
-                                                    <span>{highlight}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    {/* Price and CTA */}
-                                    <div className="flex items-center justify-between mt-4">
-                                        <div className="flex items-baseline gap-2">
-                                            <span className="text-2xl font-bold text-[#5C3D00]">
-                                                {product.price}
-                                            </span>
-                                            <span className="text-sm text-gray-500 line-through">
-                                                {product.originalPrice}
-                                            </span>
+                                        {/* Rating Badge */}
+                                        <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-full shadow flex items-center gap-1">
+                                            <span className="text-yellow-500 text-sm">★</span>
+                                            <span className="text-xs font-semibold">{product.rating}</span>
                                         </div>
-                                        <Link to={`${product.link}`}>
-                                            <button
-                                                className="
-                                                    bg-[#D4A752] 
-                                                    hover:bg-[#b78b3c] 
-                                                    text-white 
-                                                    px-4 
-                                                    py-2 
-                                                    rounded-lg 
-                                                    text-sm 
-                                                    font-semibold 
-                                                    transition-colors 
-                                                    duration-200 
-                                                    shadow-md 
-                                                    hover:shadow-lg
-                                                    flex 
-                                                    items-center 
-                                                    gap-1
-                                                "
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth={2}
-                                                    stroke="currentColor"
-                                                    className="w-4 h-4"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                                                    />
-                                                </svg>
-                                                Buy Now
-                                            </button>
-                                        </Link>
                                     </div>
-                                </div>
+
+                                    {/* Content */}
+                                    <div className="p-3">
+                                        {/* Name */}
+                                        <h3 className="text-[15px] font-semibold text-gray-800">
+                                            {product.name}
+                                        </h3>
+
+                                        {/* Short Description */}
+                                        <p className="text-gray-500 text-xs leading-tight mt-1 mb-1">
+                                            {product.description}
+                                        </p>
+
+                                        {/* Weight */}
+                                        <p className="text-gray-800 text-sm font-semibold mb-2">
+                                            {product.weight}
+                                        </p>
+
+                                        {/* Price Row */}
+                                        <div className="flex items-center justify-between mt-2">
+                                            <div>
+                                                <span className="text-lg font-bold text-[#5C3D00]">
+                                                    {product.price}
+                                                </span>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-xs text-red-600 font-semibold">
+                                                        -{product.discount}%
+                                                    </span>
+                                                    <span className="text-xs text-gray-400 line-through">
+                                                        {product.originalPrice}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {/* Add Button */}
+                                            <button className="h-9 w-9 bg-[#8C6239] hover:bg-[#6d4e2b] text-white flex items-center justify-center rounded-xl text-xl font-bold shadow-md">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>
+
 
                     {/* View All Products Button */}
                     <div className="text-center mt-8">

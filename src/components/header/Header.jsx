@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-import { BiHomeSmile } from "react-icons/bi";
+import { BiHomeSmile,BiBasket } from "react-icons/bi";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { BsCart2, BsBox } from "react-icons/bs";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -88,7 +88,7 @@ const Header = () => {
                                 </span>
                             </NavLink>
                             <NavLink to="/products" className="flex items-center ml-6 gap-1">
-                                <BiHomeSmile className="text-[22px]" />
+                                <BiBasket className="text-[22px]" />
                                 <span className="text-[18px] hidden md:block lg:block group-hover:text-slate-700">
                                     Products
                                 </span>

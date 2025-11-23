@@ -10,8 +10,6 @@ import second from "../../../assets/images/Banners/second.jpg";
 import third from "../../../assets/images/Banners/third.jpg";
 import fourth from "../../../assets/images/Banners/fourth.jpg";
 
-
-
 export const PreviousBtn = ({ className, onClick }) => {
     return (
         <div className={className} onClick={onClick}>
