@@ -283,11 +283,10 @@ const ProductDetails = () => {
                                                     <button
                                                         type="button"
                                                         onClick={() => handleThumbnailClick(idx)}
-                                                        className={`w-full h-20 p-1 border-2 rounded-lg bg-white overflow-hidden transition-all duration-200 ${
-                                                            idx === activeIndex 
-                                                                ? "border-blue-500 shadow-md" 
+                                                        className={`w-full h-20 p-1 border-2 rounded-lg bg-white overflow-hidden transition-all duration-200 ${idx === activeIndex
+                                                                ? "border-blue-500 shadow-md"
                                                                 : "border-gray-200 hover:border-gray-300"
-                                                        }`}
+                                                            }`}
                                                     >
                                                         <img
                                                             draggable="false"
@@ -326,11 +325,10 @@ const ProductDetails = () => {
                                         <div className={`absolute top-2 right-2 sm:top-4 sm:right-4 z-20 ${isAdmin ? "hidden" : ""}`}>
                                             <button
                                                 onClick={addToWishlistHandler}
-                                                className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-lg transition-all duration-200 ${
-                                                    itemInWishlist 
-                                                        ? "bg-red-50 text-red-500 border border-red-200" 
+                                                className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-lg transition-all duration-200 ${itemInWishlist
+                                                        ? "bg-red-50 text-red-500 border border-red-200"
                                                         : "bg-white text-gray-400 hover:text-red-500 border border-gray-200"
-                                                }`}
+                                                    }`}
                                                 aria-label="wishlist"
                                             >
                                                 <FavoriteIcon sx={{ fontSize: "18px" }} />
@@ -345,11 +343,10 @@ const ProductDetails = () => {
                                                         key={idx}
                                                         type="button"
                                                         onClick={() => handleThumbnailClick(idx)}
-                                                        className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 p-1 border-2 rounded-lg bg-white overflow-hidden transition-all duration-200 ${
-                                                            idx === activeIndex 
-                                                                ? "border-blue-500 shadow-md" 
+                                                        className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 p-1 border-2 rounded-lg bg-white overflow-hidden transition-all duration-200 ${idx === activeIndex
+                                                                ? "border-blue-500 shadow-md"
                                                                 : "border-gray-200 hover:border-gray-300"
-                                                        }`}
+                                                            }`}
                                                     >
                                                         <img
                                                             draggable="false"
@@ -372,7 +369,7 @@ const ProductDetails = () => {
                                     <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight break-words">
                                         {product?.name}
                                     </h1>
-                                    
+
                                     <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2">
                                         <div className="flex items-center gap-1 bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs sm:text-sm font-medium">
                                             <span>{product?.ratings?.toFixed(1)}</span>
@@ -413,7 +410,22 @@ const ProductDetails = () => {
                                             <button
                                                 onClick={itemInCart ? goToCart : addToCartHandler}
                                                 disabled={isAdmin}
-                                                className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 sm:px-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base"
+                                                className="mt-6 
+                                    px-8 
+                                    py-3 
+                                    bg-[#D4A752] 
+                                    text-white 
+                                    rounded-full 
+                                    shadow-md 
+                                    hover:shadow-lg 
+                                    transition-all 
+                                    duration-300 
+                                    hover:bg-[#b78b3c] 
+                                    animate-zoomIn
+                                    flex 
+                                    items-center 
+                                    justify-center 
+                                    gap-2"
                                             >
                                                 <ShoppingCartIcon sx={{ fontSize: "20px" }} />
                                                 {itemInCart ? "GO TO CART" : "ADD TO CART"}
@@ -421,7 +433,22 @@ const ProductDetails = () => {
                                             <button
                                                 onClick={buyNow}
                                                 disabled={isAdmin}
-                                                className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 sm:px-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base"
+                                                className="mt-6 
+                                    px-8 
+                                    py-3 
+                                    bg-[#D4A752] 
+                                    text-white 
+                                    rounded-full 
+                                    shadow-md 
+                                    hover:shadow-lg 
+                                    transition-all 
+                                    duration-300 
+                                    hover:bg-[#b78b3c] 
+                                    animate-zoomIn
+                                    flex 
+                                    items-center 
+                                    justify-center 
+                                    gap-2"
                                             >
                                                 <FlashOnIcon sx={{ fontSize: "20px" }} />
                                                 BUY NOW
@@ -516,7 +543,7 @@ const ProductDetails = () => {
                             <div>
                                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-0">
                                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Ratings & Reviews</h3>
-                                    <button 
+                                    <button
                                         onClick={handleDialogClose}
                                         className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-colors duration-200 text-sm sm:text-base w-full sm:w-auto"
                                     >
@@ -529,33 +556,33 @@ const ProductDetails = () => {
                                     <DialogContent className="flex flex-col m-3 sm:m-4 gap-3 sm:gap-4">
                                         <div className="flex items-center gap-2">
                                             <span className="text-gray-700 text-sm sm:text-base">Rating:</span>
-                                            <Rating 
-                                                onChange={(e) => setRating(Number(e.target.value))} 
-                                                value={rating} 
+                                            <Rating
+                                                onChange={(e) => setRating(Number(e.target.value))}
+                                                value={rating}
                                                 size="medium"
-                                                precision={0.5} 
+                                                precision={0.5}
                                             />
                                         </div>
-                                        <TextField 
-                                            label="Your Review" 
-                                            multiline 
-                                            rows={4} 
-                                            sx={{ width: '100%' }} 
-                                            size="small" 
-                                            variant="outlined" 
-                                            value={comment} 
-                                            onChange={(e) => setComment(e.target.value)} 
+                                        <TextField
+                                            label="Your Review"
+                                            multiline
+                                            rows={4}
+                                            sx={{ width: '100%' }}
+                                            size="small"
+                                            variant="outlined"
+                                            value={comment}
+                                            onChange={(e) => setComment(e.target.value)}
                                         />
                                     </DialogContent>
                                     <DialogActions className="p-3 sm:p-4">
-                                        <button 
-                                            onClick={handleDialogClose} 
+                                        <button
+                                            onClick={handleDialogClose}
                                             className="py-2 px-4 sm:px-6 rounded-lg border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium transition-colors duration-200 text-sm sm:text-base"
                                         >
                                             Cancel
                                         </button>
-                                        <button 
-                                            onClick={reviewSubmitHandler} 
+                                        <button
+                                            onClick={reviewSubmitHandler}
                                             className="py-2 px-4 sm:px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors duration-200 text-sm sm:text-base"
                                         >
                                             Submit Review
@@ -599,7 +626,7 @@ const ProductDetails = () => {
                                         ))}
 
                                     {product.reviews?.length > 3 && (
-                                        <button 
+                                        <button
                                             onClick={() => setViewAll(!viewAll)}
                                             className="w-full py-3 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700 font-medium transition-colors duration-200 text-sm sm:text-base"
                                         >
