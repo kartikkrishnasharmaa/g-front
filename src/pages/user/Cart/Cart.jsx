@@ -72,7 +72,7 @@ const Cart = () => {
       // 2) Open Razorpay checkout
       const options = {
         key, // returned from backend (RAZORPAY_KEY_ID)
-        amount: order.amount, // in paise
+        // amount: order.amount, // in paise
         currency: "INR",
         name: "Gowamrit",
         description: "Purchase from Gowamrit",
