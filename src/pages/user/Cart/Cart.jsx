@@ -53,7 +53,7 @@ const Cart = () => {
 
       // 1) Create order on backend
       const createOrderRes = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/api/v1/payment/create-order`,
+        `${import.meta.env.VITE_SERVER_URL}/api/v1/paymentt/create-order`,
         { products: cartItems },
         {
           headers: {
@@ -93,7 +93,7 @@ const Cart = () => {
           try {
             // 3) Verify payment on backend and create order in DB
             const verifyRes = await axios.post(
-              `${import.meta.env.VITE_SERVER_URL}/api/v1/payment/verify-payment`,
+              `${import.meta.env.VITE_SERVER_URL}/api/v1/paymentt/verify-payment`,
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
